@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Colorization</title>
+
+    <!-- Include Bootstrap CSS (you can use CDN or download and include locally) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4">Image Colorization</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputFile" name="file" accept=".jpg, .jpeg, .png" required>
+                    <label class="custom-file-label" for="inputFile">Choose an image...</label>
+                </div>
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Colorize</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS (you can use CDN or download and include locally) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script to update the custom file input label -->
+    <script>
+        document.getElementById('inputFile').addEventListener('change', function (e) {
+            var fileName = e.target.files[0].name;
+            var nextSibling = e.target.nextElementSibling;
+            nextSibling.innerText = fileName;
+        });
+    </script>
+</body>
+</html>
